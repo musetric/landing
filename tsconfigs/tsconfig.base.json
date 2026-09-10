@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024"],
+    "types": [],
+    "module": "node20",
+    "moduleResolution": "node16",
+    "rootDir": "${configDir}/src",
+    "outDir": "${configDir}/dist",
+    "declaration": true,
+    "declarationMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noUncheckedSideEffectImports": true,
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "composite": true,
+    "incremental": true,
+    "tsBuildInfoFile": "${configDir}/.tsbuildinfo/src.tsbuildinfo"
+  },
+  "include": [
+    "${configDir}/src/**/*.ts",
+    "${configDir}/src/**/*.cts",
+    "${configDir}/src/**/*.tsx",
+    "${configDir}/src/**/*.json"
+  ],
+  "exclude": [
+    "${configDir}/src/**/*.es.ts",
+    "${configDir}/src/**/*.cross.ts",
+    "${configDir}/src/**/*.dom.ts",
+    "${configDir}/src/**/*.gpu.ts",
+    "${configDir}/src/**/*.node.ts",
+    "${configDir}/src/**/*.worker.ts",
+    "${configDir}/src/**/*.worklet.ts",
+    "${configDir}/src/**/__test__/**/*"
+  ]
+}

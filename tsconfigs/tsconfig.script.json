@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "rootDir": "${configDir}",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "tsBuildInfoFile": "${configDir}/.tsbuildinfo/script.tsbuildinfo"
+  },
+  "include": ["${configDir}/**/*.ts"],
+  "exclude": [
+    "${configDir}/src/**/*",
+    "${configDir}/dist/**/*",
+    "${configDir}/.tsbuildinfo/**/*"
+  ]
+}
