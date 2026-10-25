@@ -34,6 +34,9 @@ Open `http://localhost:3003`.
 | `npm run check:deps:security` | Known vulnerabilities in dependencies         |
 | `npm run check:dupe`          | Duplicated code (jscpd)                       |
 | `npm run check:editorconfig`  | EditorConfig rules (editorconfig-checker)     |
+| `npm run check:english`       | English letters only (@musetric/checks)       |
+| `npm run check:notices`       | Paths of the third-party notices exist        |
+| `npm run check:links`         | Relative links of markdown pages resolve      |
 | `npm run check:translations`  | Verify translation keys are extracted         |
 | `npm run fix:translations`    | Extract translation keys                      |
 
