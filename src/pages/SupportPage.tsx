@@ -12,18 +12,18 @@ export const SupportPage = () => {
       updated={t('support.updated')}
     >
       <LegalSection title={t('support.contact.title')}>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('support.contact.body')}{' '}
           <Link href='mailto:musetric@gmail.com'>musetric@gmail.com</Link>.
         </Typography>
       </LegalSection>
       <LegalSection title={t('support.response.title')}>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('support.response.body')}
         </Typography>
       </LegalSection>
       <LegalSection title={t('support.include.title')}>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('support.include.body')}
         </Typography>
       </LegalSection>

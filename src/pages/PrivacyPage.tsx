@@ -12,39 +12,37 @@ export const PrivacyPage = () => {
       updated={t('privacy.updated')}
     >
       <LegalSection title={t('privacy.overview.title')}>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('privacy.overview.body')}
         </Typography>
       </LegalSection>
       <LegalSection title={t('privacy.data.title')}>
-        <Typography color='text.secondary'>
-          {t('privacy.data.audio')}
-        </Typography>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>{t('privacy.data.audio')}</Typography>
+        <Typography color='textSecondary'>
           {t('privacy.data.project')}
         </Typography>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('privacy.data.contact')}
         </Typography>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('privacy.data.technical')}
         </Typography>
       </LegalSection>
       <LegalSection title={t('privacy.use.title')}>
-        <Typography color='text.secondary'>{t('privacy.use.body')}</Typography>
+        <Typography color='textSecondary'>{t('privacy.use.body')}</Typography>
       </LegalSection>
       <LegalSection title={t('privacy.sharing.title')}>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('privacy.sharing.body')}
         </Typography>
       </LegalSection>
       <LegalSection title={t('privacy.security.title')}>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('privacy.security.body')}
         </Typography>
       </LegalSection>
       <LegalSection title={t('privacy.contact.title')}>
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('privacy.contact.body')}{' '}
           <Link href='mailto:musetric@gmail.com'>musetric@gmail.com</Link>.
         </Typography>
