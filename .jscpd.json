@@ -1,0 +1,19 @@
+{
+  "threshold": 0,
+  "reporters": ["console"],
+  "minLines": 10,
+  "minTokens": 80,
+  "ignore": [
+    "**/.git/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/node_modules/**",
+    "**/__test__/**",
+    "**/eslint.config.ts",
+    "**/index.html",
+    "**/package.json",
+    "**/*.bench.*",
+    "**/*.test.*"
+  ]
+}
