@@ -7,6 +7,8 @@ This is a standalone npm project extracted from the [Musetric monorepo](https://
 ## Requirements
 
 - Node.js at the version in `.node-version`
+- `jscpd` and `editorconfig-checker` as standalone binaries on `PATH`, at the
+  versions `.github/actions/baseQuality` installs
 
 ## Local development
 
@@ -19,15 +21,21 @@ Open `http://localhost:3003`.
 
 ## Scripts
 
-| Script | What it does |
-|---|---|
-| `npm run dev` | Vite dev server on port 3003 |
-| `npm run build:project` | Production build into `dist/` |
-| `npm run check:ts` | TypeScript checks |
-| `npm run check:lint` | ESLint |
-| `npm run fix:lint` | ESLint with autofix |
-| `npm run check:translations` | Verify translation keys are extracted |
-| `npm run fix:translations` | Extract translation keys |
+| Script                        | What it does                                  |
+| ----------------------------- | --------------------------------------------- |
+| `npm run dev`                 | Vite dev server on port 3003                  |
+| `npm run build:project`       | Production build into `dist/`                 |
+| `npm run check:ts`            | TypeScript checks                             |
+| `npm run check:lint`          | ESLint                                        |
+| `npm run fix:lint`            | ESLint with autofix                           |
+| `npm run check:format`        | Prettier check                                |
+| `npm run fix:format`          | Prettier with fixes                           |
+| `npm run check:unused`        | Unused files, dependencies and exports (knip) |
+| `npm run check:deps:security` | Known vulnerabilities in dependencies         |
+| `npm run check:dupe`          | Duplicated code (jscpd)                       |
+| `npm run check:editorconfig`  | EditorConfig rules (editorconfig-checker)     |
+| `npm run check:translations`  | Verify translation keys are extracted         |
+| `npm run fix:translations`    | Extract translation keys                      |
 
 ## Build output
 

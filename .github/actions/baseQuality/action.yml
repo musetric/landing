@@ -1,0 +1,26 @@
+name: Base Quality
+description: Duplicate-code and EditorConfig checks
+
+# Both tools are standalone binaries, installed on PATH as on a developer's
+# machine. Each step runs the command of its script from package.json without
+# installing dependencies, so CI and `npm run check:dupe` /
+# `npm run check:editorconfig` run the same thing.
+runs:
+  using: composite
+  steps:
+    - name: Install the tools
+      shell: bash
+      env:
+        JSCPD_VERSION: 5.1.2
+        EDITORCONFIG_CHECKER_VERSION: v4.0.1
+      run: |
+        mkdir -p "$RUNNER_TEMP/bin"
+        curl -fsSL "https://github.com/kucherenko/jscpd/releases/download/v$JSCPD_VERSION/jscpd-linux-x64-gnu.tar.gz" | tar -xz -C "$RUNNER_TEMP/bin" jscpd
+        curl -fsSL "https://github.com/editorconfig-checker/editorconfig-checker/releases/download/$EDITORCONFIG_CHECKER_VERSION/editorconfig-checker-linux-amd64.tar.gz" | tar -xz -C "$RUNNER_TEMP/bin" editorconfig-checker
+        echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+    - name: Check duplicate code
+      shell: bash
+      run: bash -c "$(jq -r '.scripts["check:dupe"]' package.json)"
+    - name: Check EditorConfig
+      shell: bash
+      run: bash -c "$(jq -r '.scripts["check:editorconfig"]' package.json)"

@@ -10,11 +10,29 @@ const override = {
   settings: {
     'import-x/resolver': resolvePlugin.createTypeScriptImportResolver({
       conditionNames: ['import', 'default', 'types'],
-      extensions: ['.ts', '.tsx', '.cts', '.mts', '.js', '.jsx', '.cjs', '.mjs'],
+      extensions: [
+        '.ts',
+        '.tsx',
+        '.cts',
+        '.mts',
+        '.js',
+        '.jsx',
+        '.cjs',
+        '.mjs',
+      ],
     }),
     'import-x/resolver-next': resolvePlugin.createTypeScriptImportResolver({
       conditionNames: ['import', 'default', 'types'],
-      extensions: ['.ts', '.tsx', '.cts', '.mts', '.js', '.jsx', '.cjs', '.mjs'],
+      extensions: [
+        '.ts',
+        '.tsx',
+        '.cts',
+        '.mts',
+        '.js',
+        '.jsx',
+        '.cjs',
+        '.mjs',
+      ],
     }),
   },
 };
