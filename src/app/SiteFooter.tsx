@@ -19,18 +19,18 @@ export const SiteFooter = () => {
           py: 3,
         }}
       >
-        <Typography color='text.secondary'>
+        <Typography color='textSecondary'>
           {t('landing.footer.brand')}
         </Typography>
-        <Stack direction='row' flexWrap='wrap' gap={2.5}>
-          <Link color='text.primary' href='/privacy' underline='hover'>
+        <Stack direction='row' sx={{ flexWrap: 'wrap', gap: 2.5 }}>
+          <Link color='textPrimary' href='/privacy' underline='hover'>
             {t('landing.footer.privacy')}
           </Link>
-          <Link color='text.primary' href='/support' underline='hover'>
+          <Link color='textPrimary' href='/support' underline='hover'>
             {t('landing.footer.support')}
           </Link>
           <Link
-            color='text.primary'
+            color='textPrimary'
             href='mailto:musetric@gmail.com'
             underline='hover'
           >

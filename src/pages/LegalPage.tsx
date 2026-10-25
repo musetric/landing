@@ -42,12 +42,10 @@ export const LegalPage = (props: LegalPageProps) => {
         >
           {title}
         </Typography>
-        <Typography color='text.secondary' sx={{ mt: 2 }}>
+        <Typography color='textSecondary' sx={{ mt: 2 }}>
           {updated}
         </Typography>
-        <Stack gap={4} sx={{ mt: 5 }}>
-          {children}
-        </Stack>
+        <Stack sx={{ mt: 5, gap: 4 }}>{children}</Stack>
       </Container>
     </SitePage>
   );
@@ -66,7 +64,7 @@ export const LegalSection = (props: LegalSectionProps) => {
       <Typography variant='h2' sx={{ mb: 1.5, fontSize: '1.45rem' }}>
         {title}
       </Typography>
-      <Stack gap={1.5}>{children}</Stack>
+      <Stack sx={{ gap: 1.5 }}>{children}</Stack>
     </Box>
   );
 };

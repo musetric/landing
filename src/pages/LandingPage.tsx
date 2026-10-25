@@ -143,7 +143,7 @@ export const LandingPage = () => {
           >
             {t('landing.hero.lead')}
           </Typography>
-          <Stack direction='row' flexWrap='wrap' gap={1.5} sx={{ mt: 4.25 }}>
+          <Stack direction='row' sx={{ mt: 4.25, flexWrap: 'wrap', gap: 1.5 }}>
             <Button variant='contained' href='mailto:musetric@gmail.com'>
               {t('landing.hero.contact')}
             </Button>
@@ -212,7 +212,7 @@ export const LandingPage = () => {
               <Typography variant='h3' sx={{ fontSize: '1.08rem' }}>
                 {t('landing.features.study.title')}
               </Typography>
-              <Typography sx={{ mt: 1.75 }} color='text.secondary'>
+              <Typography sx={{ mt: 1.75 }} color='textSecondary'>
                 {t('landing.features.study.text')}
               </Typography>
             </CardContent>
@@ -222,7 +222,7 @@ export const LandingPage = () => {
               <Typography variant='h3' sx={{ fontSize: '1.08rem' }}>
                 {t('landing.features.practice.title')}
               </Typography>
-              <Typography sx={{ mt: 1.75 }} color='text.secondary'>
+              <Typography sx={{ mt: 1.75 }} color='textSecondary'>
                 {t('landing.features.practice.text')}
               </Typography>
             </CardContent>
@@ -232,7 +232,7 @@ export const LandingPage = () => {
               <Typography variant='h3' sx={{ fontSize: '1.08rem' }}>
                 {t('landing.features.record.title')}
               </Typography>
-              <Typography sx={{ mt: 1.75 }} color='text.secondary'>
+              <Typography sx={{ mt: 1.75 }} color='textSecondary'>
                 {t('landing.features.record.text')}
               </Typography>
             </CardContent>
@@ -262,7 +262,7 @@ export const LandingPage = () => {
           <ProcessStep number='4' title={t('landing.flow.record')} />
         </Box>
         <Typography
-          color='text.secondary'
+          color='textSecondary'
           sx={{
             width: { xs: '100%', md: 680 },
             mt: 2.75,

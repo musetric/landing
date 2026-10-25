@@ -21,16 +21,16 @@
   "devDependencies": {
     "@musetric/eslint-config": "0.1.0-dev.gaf19b52",
     "@resvg/resvg-js": "2.6.2",
-    "@types/node": "25.9.3",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "@typescript/native": "npm:typescript@7.0.2",
-    "@vitejs/plugin-react": "6.0.3",
+    "@vitejs/plugin-react": "6.1.2",
     "eslint": "10.5.0",
-    "eslint-import-resolver-typescript": "^4.4.5",
-    "eslint-plugin-import-x": "^4.17.0",
-    "i18next-cli": "1.65.0",
-    "jiti": "^2.7.0",
+    "eslint-import-resolver-typescript": "4.4.5",
+    "eslint-plugin-import-x": "4.17.0",
+    "i18next-cli": "1.73.1",
+    "jiti": "2.7.0",
     "knip": "6.41.0",
     "png-to-ico": "3.0.2",
     "prettier": "3.9.10",
@@ -40,10 +40,10 @@
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
-    "@mui/material": "7.3.8",
-    "i18next": "26.3.5",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "react-i18next": "17.0.8"
+    "@mui/material": "9.5.0",
+    "i18next": "26.4.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-i18next": "17.0.16"
   }
 }
