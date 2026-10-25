@@ -6,7 +6,7 @@ This is a standalone npm project extracted from the [Musetric monorepo](https://
 
 ## Requirements
 
-- Node.js `26.2.0` (pinned via `.nvmrc`)
+- Node.js at the version in `.node-version`
 
 ## Local development
 
