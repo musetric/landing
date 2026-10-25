@@ -14,11 +14,15 @@
     "fix:format": "prettier . --write --list-different",
     "check:dupe": "jscpd src scripts --config .jscpd.json",
     "check:editorconfig": "editorconfig-checker",
+    "check:english": "musetric-checks english",
+    "check:notices": "musetric-checks notices",
+    "check:links": "musetric-checks links",
     "check:ts": "tsc --build",
     "check:lint": "eslint . --cache --cache-strategy content",
     "fix:lint": "eslint . --fix --cache --cache-strategy content"
   },
   "devDependencies": {
+    "@musetric/checks": "0.1.0",
     "@musetric/eslint-config": "0.1.0-dev.gaf19b52",
     "@resvg/resvg-js": "2.6.2",
     "@types/node": "26.6.5",

@@ -27,6 +27,9 @@ jobs:
       - run: npm run check:translations
       - run: npm run check:ts
       - run: npm run check:lint
+      - run: npm run check:english
+      - run: npm run check:notices
+      - run: npm run check:links
       - run: npm run build:project
   check-base-quality:
     runs-on: ubuntu-latest
