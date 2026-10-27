@@ -1,8 +1,6 @@
 name: Base Quality
 description: Duplicate-code and EditorConfig checks
 
-# Installs jscpd and editorconfig-checker on PATH and runs the commands of the
-# check:dupe and check:editorconfig scripts of package.json.
 runs:
   using: composite
   steps:
