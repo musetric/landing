@@ -1,42 +1,24 @@
-# Allowed Conventional Commit types and scopes.
-#
-# Format: `type(scope): subject`  (scope is required)
-#   feat(pages): add a page about the trainer
-#   fix(translation): correct the support contact text
-#   ci(github): cancel superseded prTitle runs
-#
-# The full line `type(scope): subject` must be 70 characters or less.
-#
-# Read by .github/workflows/prTitle.yml and enforced on every PR title.
-# Inline comments below document what each key means and when to use it.
-#
-# Adding a new scope: add it here and merge to main first — the linter reads
-#   this list from the base branch, so a PR cannot use a scope that is not yet on main.
-# Removing an area + its scope: do it in one PR (the scope still exists on the base branch).
-
-# Type = what kind of change it is.
 types:
-  - feat # new user-facing content or functionality of the site
-  - fix # bug fix in existing behavior
-  - perf # speed/size optimization, behavior unchanged
-  - refactor # internal code rewritten, behavior unchanged
-  - revert # roll back a previously merged change
-  - docs # documentation, comments, readme only
-  - test # tests added/changed, no site code touched
-  - build # build system & packaged artifacts (vite, favicons)
-  - ci # CI/CD pipelines (this workflow, etc.)
-  - chore # housekeeping that touches no site code, build, or CI
+  feat: 'new user-facing content or functionality of the site'
+  fix: 'bug fix in existing behavior'
+  perf: 'speed/size optimization, behavior unchanged'
+  refactor: 'internal code rewritten, behavior unchanged'
+  revert: 'roll back a previously merged change'
+  docs: 'documentation and readme only'
+  test: 'tests added/changed, no site code touched'
+  build: 'build system & packaged artifacts (vite, favicons)'
+  ci: 'CI/CD pipelines'
+  chore: 'housekeeping that touches no site code, build, or CI'
 
-# Scope = which area the change belongs to.
 scopes:
-  - pages # the pages of the site: landing, legal, privacy, support
-  - app # the site's shell: layout, footer, theme
-  - translation # site texts and their localization
-  - assets # icons, images and the social preview
-  - public # files served as they are: headers, robots, sitemap
-  - deploy # Cloudflare Pages and wrangler settings
-  - deps # dependency add / update / remove
-  - github # repo & GitHub Actions settings (workflows, templates)
-  - lint # ESLint rules and config
-  - ts # TypeScript config & strictness (tsconfig, types)
-  - license # license, trademark and third-party notices
+  pages: 'the pages of the site: landing, legal, privacy, support'
+  app: "the site's shell: layout, footer, theme"
+  translation: 'site texts and their localization'
+  assets: 'icons, images and the social preview'
+  public: 'files served as they are: headers, robots, sitemap'
+  deploy: 'Cloudflare Pages and wrangler settings'
+  deps: 'dependency add / update / remove'
+  github: 'repo & GitHub Actions settings (workflows, templates)'
+  lint: 'ESLint rules and config'
+  ts: 'TypeScript config & strictness (tsconfig, types)'
+  license: 'license, trademark and third-party notices'
