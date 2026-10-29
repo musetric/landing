@@ -23,4 +23,4 @@ npx wrangler pages deploy ./dist --project-name=musetric-landing
 
 ## License
 
-Source code is [MIT licensed](license.md). The Musetric name and logo are trademarks and are not covered by the MIT license — see [trademark.md](trademark.md). Third-party notices are in [thirdPartyNotices.md](thirdPartyNotices.md).
+Source code is [MIT licensed](license.md). The Musetric name and logo are trademarks and are not covered by the MIT license — see [trademark.md](https://github.com/musetric/musetric/blob/main/trademark.md). Third-party notices are in [thirdPartyNotices.md](thirdPartyNotices.md).
