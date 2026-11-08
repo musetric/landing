@@ -1,6 +1,6 @@
 # Musetric Landing
 
-The website of Musetric, [musetric.com](https://musetric.com): a static React site built with Vite and served by Cloudflare Pages. The product itself is [musetric/musetric](https://github.com/musetric/musetric).
+The website of Musetric, [musetric.com](https://musetric.com): a React site that Vite builds and prerenders into one static HTML file per page of `src/app/routes.tsx`, served by Cloudflare Pages. The product itself is [musetric/musetric](https://github.com/musetric/musetric).
 
 ## Development
 

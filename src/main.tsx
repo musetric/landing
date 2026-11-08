@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { App } from './app/App.js';
 import { initI18next } from './translations/index.js';
 
@@ -11,8 +11,14 @@ if (!rootElement) {
 
 await initI18next();
 
-createRoot(rootElement).render(
+const app = (
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <App pathname={window.location.pathname} />
+  </StrictMode>
 );
+
+if (rootElement.firstElementChild) {
+  hydrateRoot(rootElement, app);
+} else {
+  createRoot(rootElement).render(app);
+}
