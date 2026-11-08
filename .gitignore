@@ -3,3 +3,4 @@ dist/
 .tsbuildinfo/
 .eslintcache
 .vite-dev.*.log
+dist-ssr/

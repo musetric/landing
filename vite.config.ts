@@ -9,6 +9,9 @@ export default defineConfig({
     react(),
     favicons({
       svgPath: fileURLToPath(new URL('./src/favicon.svg', import.meta.url)),
+      socialPreviewPath: fileURLToPath(
+        new URL('./src/socialPreview.svg', import.meta.url),
+      ),
       name: 'Musetric',
     }),
   ],
