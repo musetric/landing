@@ -7,11 +7,14 @@ The website of Musetric, [musetric.com](https://musetric.com): a static React si
 Node.js at the version in `.node-version`, and `jscpd` and `editorconfig-checker` on `PATH` at the versions `.github/actions/baseQuality` installs.
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
 The site runs at `http://localhost:3003`. `npm run build:project` builds it into `dist/`; the `check:*` scripts of `package.json` are the checks CI runs.
+
+- Install with `npm ci`, as CI does, also after an update: `npm install` can keep a lockfile that `npm ci` refuses.
+- ESLint and its plugins stay at the versions `@musetric/eslint-config` takes; they move when the monorepo publishes a new one.
 
 ## Deploy
 
