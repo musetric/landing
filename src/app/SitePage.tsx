@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import { type ReactNode } from 'react';
 import { SiteFooter } from './SiteFooter.js';
+import { SiteHeader } from './SiteHeader.js';
 
 type SitePageProps = {
   children: ReactNode;
@@ -10,9 +11,10 @@ export const SitePage = (props: SitePageProps) => {
   const { children } = props;
 
   return (
-    <Box component='main' sx={{ backgroundColor: 'background.default' }}>
-      {children}
+    <>
+      <SiteHeader />
+      <Box component='main'>{children}</Box>
       <SiteFooter />
-    </Box>
+    </>
   );
 };

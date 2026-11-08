@@ -1,43 +1,53 @@
 import { createTheme } from '@mui/material';
 
+export const displayFont = '"Fraunces Variable", Georgia, serif';
+
 export const theme = createTheme({
   palette: {
+    mode: 'dark',
     background: {
-      default: '#f7f4ef',
-      paper: '#fffaf2',
+      default: '#0c0b0a',
+      paper: '#141210',
     },
     primary: {
-      main: '#ff6b4a',
-      contrastText: '#171614',
+      main: '#d6b85a',
+      contrastText: '#15130f',
     },
     secondary: {
-      main: '#6fd6c5',
+      main: '#96bee6',
+      contrastText: '#0c0b0a',
     },
     text: {
-      primary: '#171614',
-      secondary: 'rgba(23, 22, 20, 0.68)',
+      primary: '#f5efe6',
+      secondary: '#c9c1b4',
+      disabled: '#7d766b',
     },
+    divider: 'rgba(245, 239, 230, 0.1)',
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 14,
   },
   typography: {
     fontFamily:
-      'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      '"Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif',
     h1: {
-      fontWeight: 900,
-      letterSpacing: 0,
+      fontFamily: displayFont,
+      fontWeight: 500,
+      letterSpacing: '-0.02em',
+      lineHeight: 1,
     },
     h2: {
-      fontWeight: 850,
-      letterSpacing: 0,
+      fontFamily: displayFont,
+      fontWeight: 500,
+      lineHeight: 1.05,
     },
     h3: {
-      fontWeight: 850,
-      letterSpacing: 0,
+      fontFamily: displayFont,
+      fontWeight: 500,
+      lineHeight: 1.1,
     },
     button: {
-      fontWeight: 850,
+      fontWeight: 600,
       letterSpacing: 0,
       textTransform: 'none',
     },

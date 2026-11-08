@@ -1,3 +1,6 @@
+import '@fontsource-variable/fraunces/index.css';
+import '@fontsource-variable/fraunces/wght-italic.css';
+import '@fontsource-variable/inter/index.css';
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { App } from './app/App.js';

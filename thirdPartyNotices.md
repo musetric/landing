@@ -7,3 +7,10 @@ For the complete and authoritative list of third-party notices used across the M
 https://github.com/musetric/musetric/blob/main/thirdPartyNotices.md
 
 The Musetric monorepo (https://github.com/musetric/musetric) is the canonical source for license and attribution information.
+
+## Fonts
+
+The site serves two fonts of its own, bundled from `@fontsource-variable`:
+
+- Fraunces, by the Fraunces Project Authors, under the SIL Open Font License 1.1.
+- Inter, by the Inter Project Authors, under the SIL Open Font License 1.1.

@@ -1,6 +1,6 @@
 import { type TFunction } from 'i18next';
 import { type ComponentType } from 'react';
-import { LandingPage } from '../pages/LandingPage.js';
+import { LandingPage } from '../pages/landing/LandingPage.js';
 import { NotFoundPage } from '../pages/NotFoundPage.js';
 import { PrivacyPage } from '../pages/PrivacyPage.js';
 import { SupportPage } from '../pages/SupportPage.js';
