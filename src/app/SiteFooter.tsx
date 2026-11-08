@@ -1,4 +1,4 @@
-import { Box, Container, Link, Stack, Typography } from '@mui/material';
+import { Box, Container, Link, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 export const SiteFooter = () => {
@@ -7,36 +7,48 @@ export const SiteFooter = () => {
   return (
     <Box
       component='footer'
-      sx={{ borderTop: '1px solid rgba(23, 22, 20, 0.1)' }}
+      sx={{ borderTop: 1, borderColor: 'divider', fontSize: 14 }}
     >
       <Container
         maxWidth='lg'
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
+          flexWrap: 'wrap',
           justifyContent: 'space-between',
-          gap: 2,
-          py: 3,
+          gap: 2.5,
+          pt: 4.5,
+          pb: 7,
         }}
       >
-        <Typography color='textSecondary'>
-          {t('landing.footer.brand')}
+        <Typography color='textSecondary' sx={{ fontSize: 'inherit' }}>
+          {t('site.footer.about')}
         </Typography>
-        <Stack direction='row' sx={{ flexWrap: 'wrap', gap: 2.5 }}>
-          <Link color='textPrimary' href='/privacy' underline='hover'>
-            {t('landing.footer.privacy')}
+        <Box
+          component='nav'
+          aria-label={t('site.footer.label')}
+          sx={{ display: 'flex', flexWrap: 'wrap', gap: 2.5 }}
+        >
+          <Link
+            href='https://github.com/musetric/musetric'
+            color='textSecondary'
+            underline='hover'
+          >
+            GitHub
           </Link>
-          <Link color='textPrimary' href='/support' underline='hover'>
-            {t('landing.footer.support')}
+          <Link href='/privacy' color='textSecondary' underline='hover'>
+            {t('site.footer.privacy')}
+          </Link>
+          <Link href='/support' color='textSecondary' underline='hover'>
+            {t('site.footer.support')}
           </Link>
           <Link
-            color='textPrimary'
             href='mailto:musetric@gmail.com'
+            color='textSecondary'
             underline='hover'
           >
             musetric@gmail.com
           </Link>
-        </Stack>
+        </Box>
       </Container>
     </Box>
   );

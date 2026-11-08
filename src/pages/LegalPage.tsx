@@ -1,6 +1,5 @@
-import { Box, Button, Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import { type ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { SitePage } from '../app/SitePage.js';
 
 type LegalPageProps = {
@@ -12,24 +11,13 @@ type LegalPageProps = {
 
 export const LegalPage = (props: LegalPageProps) => {
   const { children, eyebrow, title, updated } = props;
-  const { t } = useTranslation();
 
   return (
     <SitePage>
       <Container maxWidth='md' sx={{ py: { xs: 5, md: 8 } }}>
-        <Button href='/' variant='text' sx={{ mb: 4, px: 0 }}>
-          {t('legal.backHome')}
-        </Button>
         <Typography
           component='p'
-          sx={{
-            mb: 2,
-            color: 'secondary.main',
-            fontSize: '0.78rem',
-            fontWeight: 900,
-            letterSpacing: 0,
-            textTransform: 'uppercase',
-          }}
+          sx={{ mb: 2, color: 'primary.main', fontSize: 15 }}
         >
           {eyebrow}
         </Typography>
