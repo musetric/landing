@@ -5,6 +5,7 @@ export const FaqSection = () => {
   const { t } = useTranslation();
   const questions = [
     { question: t('landing.faq.start.q'), answer: t('landing.faq.start.a') },
+    { question: t('landing.faq.try.q'), answer: t('landing.faq.try.a') },
     { question: t('landing.faq.buy.q'), answer: t('landing.faq.buy.a') },
     { question: t('landing.faq.songs.q'), answer: t('landing.faq.songs.a') },
     {

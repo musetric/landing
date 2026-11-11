@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2024", "WebWorker"],
+    "tsBuildInfoFile": "${configDir}/.tsbuildinfo/cross.tsbuildinfo"
+  },
+  "include": ["${configDir}/src/**/*.cross.ts"],
+  "exclude": []
+}

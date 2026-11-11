@@ -16,7 +16,7 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    conditions: [...defaultClientConditions],
+    conditions: [...defaultClientConditions, 'onnxruntime-web-use-extern-wasm'],
   },
   build: {
     target: 'es2022',

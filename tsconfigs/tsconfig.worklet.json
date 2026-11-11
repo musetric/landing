@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["audioworklet"],
+    "tsBuildInfoFile": "${configDir}/.tsbuildinfo/worklet.tsbuildinfo"
+  },
+  "include": ["${configDir}/src/**/*.worklet.ts"],
+  "exclude": []
+}

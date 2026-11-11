@@ -60,6 +60,14 @@ export const SiteHeader = () => {
           {t('site.nav.how')}
         </Link>
         <Link
+          href='/#try'
+          underline='hover'
+          color='textSecondary'
+          sx={{ display: { xs: 'none', md: 'inline' } }}
+        >
+          {t('site.nav.try')}
+        </Link>
+        <Link
           href='/#teachers'
           underline='hover'
           color='textSecondary'
