@@ -38,6 +38,9 @@ export const SiteFooter = () => {
           <Link href='/privacy' color='textSecondary' underline='hover'>
             {t('site.footer.privacy')}
           </Link>
+          <Link href='/credits' color='textSecondary' underline='hover'>
+            {t('site.footer.credits')}
+          </Link>
           <Link href='/support' color='textSecondary' underline='hover'>
             {t('site.footer.support')}
           </Link>

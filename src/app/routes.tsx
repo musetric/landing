@@ -1,5 +1,6 @@
 import { type TFunction } from 'i18next';
 import { type ComponentType } from 'react';
+import { CreditsPage } from '../pages/CreditsPage.js';
 import { LandingPage } from '../pages/landing/LandingPage.js';
 import { NotFoundPage } from '../pages/NotFoundPage.js';
 import { PrivacyPage } from '../pages/PrivacyPage.js';
@@ -43,6 +44,15 @@ export const siteRoutes: SiteRoute[] = [
     head: (t) => ({
       title: t('meta.support.title'),
       description: t('meta.support.description'),
+    }),
+  },
+  {
+    path: '/credits',
+    file: 'credits.html',
+    page: CreditsPage,
+    head: (t) => ({
+      title: t('meta.credits.title'),
+      description: t('meta.credits.description'),
     }),
   },
 ];
