@@ -51,13 +51,28 @@ export const SiteHeader = () => {
           fontSize: 15,
         }}
       >
-        <Link href='/#how' underline='hover' color='textSecondary'>
+        <Link
+          href='/#how'
+          underline='hover'
+          color='textSecondary'
+          sx={{ display: { xs: 'none', md: 'inline' } }}
+        >
           {t('site.nav.how')}
         </Link>
-        <Link href='/#teachers' underline='hover' color='textSecondary'>
+        <Link
+          href='/#teachers'
+          underline='hover'
+          color='textSecondary'
+          sx={{ display: { xs: 'none', md: 'inline' } }}
+        >
           {t('site.nav.teachers')}
         </Link>
-        <Link href='/#faq' underline='hover' color='textSecondary'>
+        <Link
+          href='/#faq'
+          underline='hover'
+          color='textSecondary'
+          sx={{ display: { xs: 'none', md: 'inline' } }}
+        >
           {t('site.nav.faq')}
         </Link>
         <Button
