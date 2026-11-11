@@ -1,13 +1,9 @@
-import { Box, Button, Container, Link, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useDevice } from '../../app/device.js';
-import { useInstalls } from '../../app/install.js';
-import { InstallButton } from '../../app/InstallButton.js';
+import { DownloadButton } from '../../app/DownloadButton.js';
 
 export const HeroSection = () => {
   const { t } = useTranslation();
-  const device = useDevice();
-  const installs = useInstalls();
 
   return (
     <Container
@@ -55,7 +51,7 @@ export const HeroSection = () => {
           gap: 1.5,
         }}
       >
-        <InstallButton install={installs[device]} />
+        <DownloadButton />
         <Button
           href='#how'
           variant='outlined'
@@ -71,10 +67,7 @@ export const HeroSection = () => {
         </Button>
       </Box>
       <Typography color='textSecondary' sx={{ fontSize: 15 }}>
-        {t('landing.hero.included')} ·{' '}
-        <Link href='#join' color='textPrimary'>
-          {t('landing.otherDevices')}
-        </Link>
+        {t('landing.hero.included')}
       </Typography>
     </Container>
   );
