@@ -25,7 +25,7 @@ export const theme = createTheme({
     divider: 'rgba(245, 239, 230, 0.1)',
   },
   shape: {
-    borderRadius: 14,
+    borderRadius: 4,
   },
   typography: {
     fontFamily:
