@@ -1,13 +1,9 @@
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { platforms, useDevice } from '../../app/device.js';
-import { useInstalls } from '../../app/install.js';
-import { InstallButton } from '../../app/InstallButton.js';
+import { DownloadButton } from '../../app/DownloadButton.js';
 
 export const JoinSection = () => {
   const { t } = useTranslation();
-  const device = useDevice();
-  const installs = useInstalls();
 
   return (
     <Container
@@ -22,7 +18,7 @@ export const JoinSection = () => {
           flexDirection: 'column',
           alignItems: 'center',
           gap: 2.5,
-          px: 4,
+          px: { xs: 2, sm: 4 },
           py: 7,
           borderRadius: 7,
           border: 1,
@@ -41,40 +37,7 @@ export const JoinSection = () => {
         <Typography color='textSecondary' sx={{ maxWidth: 620, fontSize: 19 }}>
           {t('landing.join.lead')}
         </Typography>
-        <InstallButton install={installs[device]} />
-        <Box component='details' sx={{ color: 'text.secondary' }}>
-          <Box component='summary' sx={{ cursor: 'pointer', fontSize: 15 }}>
-            {t('landing.otherDevices')}
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: 1.25,
-              mt: 2,
-            }}
-          >
-            {platforms.map((platform) => (
-              <Button
-                key={platform}
-                href={installs[platform].href}
-                variant='outlined'
-                color='inherit'
-                sx={{
-                  flexDirection: 'column',
-                  borderRadius: 4,
-                  borderColor: 'divider',
-                }}
-              >
-                <span>{installs[platform].label}</span>
-                <Box component='span' sx={{ fontSize: 12, fontWeight: 400 }}>
-                  {installs[platform].note}
-                </Box>
-              </Button>
-            ))}
-          </Box>
-        </Box>
+        <DownloadButton />
       </Box>
     </Container>
   );

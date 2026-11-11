@@ -1,14 +1,10 @@
 import { Box, Button, Container, Link } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import logo from '../favicon.svg';
-import { useDevice } from './device.js';
-import { useInstalls } from './install.js';
 import { displayFont } from './theme.js';
 
 export const SiteHeader = () => {
   const { t } = useTranslation();
-  const device = useDevice();
-  const installs = useInstalls();
 
   return (
     <Container
@@ -65,11 +61,11 @@ export const SiteHeader = () => {
           {t('site.nav.faq')}
         </Link>
         <Button
-          href={installs[device].href}
-          variant='contained'
+          href='/#join'
+          variant='outlined'
           sx={{ borderRadius: 999, minHeight: 44, px: 2.25 }}
         >
-          {t('install.short')}
+          {t('download.soon.short')}
         </Button>
       </Box>
     </Container>
