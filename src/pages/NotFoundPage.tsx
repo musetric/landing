@@ -17,7 +17,7 @@ export const NotFoundPage = () => {
         <Typography color='textSecondary' sx={{ mt: 2 }}>
           {t('notFound.body')}
         </Typography>
-        <Button href='/' variant='contained' sx={{ mt: 4 }}>
+        <Button href='/' variant='contained' sx={{ mt: 4, borderRadius: 5 }}>
           {t('notFound.home')}
         </Button>
       </Container>
