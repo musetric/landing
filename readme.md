@@ -19,10 +19,10 @@ The site runs at `http://localhost:3003`. `npm run build:project` builds it into
 
 ## Deploy
 
-`dist/` is deployed by hand to the Cloudflare Pages project of `wrangler.jsonc`, from the dashboard or with:
+musetric.com is the Worker `musetric-landing` of `wrangler.jsonc`, which serves `dist/` as static assets. It is deployed by hand, with the Cloudflare account of `npx wrangler login`:
 
 ```sh
-npx wrangler pages deploy ./dist --project-name=musetric-landing
+npm run deploy
 ```
 
 ## License
