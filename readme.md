@@ -19,7 +19,7 @@ The site runs at `http://localhost:3003`. `npm run build:project` builds it into
 
 ## Deploy
 
-musetric.com is the Worker `musetric-landing` of `wrangler.jsonc`, which serves `dist/` as static assets. Every push to `main` deploys it through `.github/workflows/deploy.yml`, with the repository secrets `CLOUDFLARE_API_TOKEN`, a token of the Edit Cloudflare Workers template for the account and the zone `musetric.com`, and `CLOUDFLARE_ACCOUNT_ID`. The same deploy runs by hand, with the account of `npx wrangler login`:
+musetric.com is the Worker `musetric-landing` of `wrangler.jsonc`, which serves `dist/` as static assets. The Deploy workflow of `.github/workflows/deploy.yml`, started by hand in GitHub Actions, deploys it from `main` with the repository secrets `CLOUDFLARE_API_TOKEN`, a token of the Edit Cloudflare Workers template for the account and the zone `musetric.com`, and `CLOUDFLARE_ACCOUNT_ID`. The same deploy runs from a computer, with the account of `npx wrangler login`:
 
 ```sh
 npm run deploy
