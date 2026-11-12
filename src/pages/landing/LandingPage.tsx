@@ -5,12 +5,12 @@ import { JoinSection } from './JoinSection.js';
 import { PromisesSection } from './PromisesSection.js';
 import { StepsSection } from './StepsSection.js';
 import { TeachersSection } from './TeachersSection.js';
-import { VoiceFigure } from './VoiceFigure.js';
+import { TrySection } from './tryIt/TrySection.js';
 
 export const LandingPage = () => (
   <SitePage>
     <HeroSection />
-    <VoiceFigure />
+    <TrySection />
     <StepsSection />
     <TeachersSection />
     <PromisesSection />

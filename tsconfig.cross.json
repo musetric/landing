@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfigs/tsconfig.cross.json",
+  "compilerOptions": {
+    "outDir": "${configDir}/.tsbuildinfo/dist"
+  }
+}

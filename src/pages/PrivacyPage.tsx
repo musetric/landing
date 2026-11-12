@@ -28,6 +28,14 @@ export const PrivacyPage = () => {
           {t('privacy.data.technical')}
         </Typography>
       </LegalSection>
+      <LegalSection title={t('privacy.browser.title')}>
+        <Typography color='textSecondary'>
+          {t('privacy.browser.song')}
+        </Typography>
+        <Typography color='textSecondary'>
+          {t('privacy.browser.downloads')}
+        </Typography>
+      </LegalSection>
       <LegalSection title={t('privacy.use.title')}>
         <Typography color='textSecondary'>{t('privacy.use.body')}</Typography>
       </LegalSection>

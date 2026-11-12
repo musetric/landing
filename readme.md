@@ -15,6 +15,7 @@ The site runs at `http://localhost:3003`. `npm run build:project` builds it into
 
 - Install with `npm ci`, as CI does, also after an update: `npm install` can keep a lockfile that `npm ci` refuses.
 - ESLint and its plugins stay at the versions `@musetric/eslint-config` takes; they move when the monorepo publishes a new one.
+- The demo of the home page (`src/pages/landing/tryIt`) runs `@musetric/ai` in a worker; the model comes from Hugging Face and the WebAssembly of `onnxruntime-web` from jsDelivr, at the version the lockfile pins. The `onnxruntime-web-use-extern-wasm` condition of `vite.config.ts` keeps that 26 MB module out of `dist/`, since Cloudflare serves no file above 25 MiB.
 
 ## Deploy
 
