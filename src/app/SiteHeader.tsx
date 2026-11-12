@@ -78,7 +78,7 @@ export const SiteHeader = () => {
         <Button
           href='/#join'
           variant='outlined'
-          sx={{ borderRadius: 999, minHeight: 44, px: 2.25 }}
+          sx={{ borderRadius: 999, minHeight: 44, px: { xs: 1.5, sm: 2.25 } }}
         >
           {t('download.soon.short')}
         </Button>
