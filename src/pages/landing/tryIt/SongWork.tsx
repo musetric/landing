@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CircularProgress,
   IconButton,
   LinearProgress,
   SvgIcon,
@@ -18,6 +19,20 @@ const timeOf = (seconds: number): string => {
   return `${String(minutes)}:${String(rest).padStart(2, '0')}`;
 };
 
+const progressOf = (
+  state: TryItState,
+  limit: number,
+  readySeconds: number,
+): number | undefined => {
+  if (state.screen === 'loading') {
+    return state.total > 0 ? (state.loaded / state.total) * 100 : 0;
+  }
+  if (state.screen === 'separating') {
+    return Math.min(100, (readySeconds / limit) * 100);
+  }
+  return undefined;
+};
+
 type SongWorkProps = {
   song: SongInfo;
   state: TryItState;
@@ -31,8 +46,7 @@ export const SongWork = (props: SongWorkProps) => {
   const limit = song.frames / song.sampleRate;
   const readySeconds = state.ready / song.sampleRate;
   const done = state.screen === 'done';
-  const percent =
-    state.total > 0 ? Math.floor((state.loaded / state.total) * 100) : 0;
+  const progress = progressOf(state, limit, readySeconds);
   const statusOf: Record<TryItState['screen'], string> = {
     checking: t('landing.try.status.preparing'),
     unsupported: t('landing.try.status.preparing'),
@@ -40,7 +54,7 @@ export const SongWork = (props: SongWorkProps) => {
     waiting: t('landing.try.status.preparing'),
     failed: t('landing.try.status.preparing'),
     preparing: t('landing.try.status.preparing'),
-    loading: t('landing.try.status.loading', { percent }),
+    loading: t('landing.try.status.loading'),
     building: t('landing.try.status.building'),
     separating: t('landing.try.status.separating', {
       ready: timeOf(readySeconds),
@@ -69,10 +83,13 @@ export const SongWork = (props: SongWorkProps) => {
       <Box
         sx={{
           display: 'flex',
-          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: 1.25,
+          '@container (max-width: 599px)': {
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+          },
         }}
       >
         <Box
@@ -109,27 +126,33 @@ export const SongWork = (props: SongWorkProps) => {
             borderRadius: 999,
             bgcolor: 'action.hover',
             fontSize: 14,
+            fontVariantNumeric: 'tabular-nums',
+            flexShrink: 0,
           }}
         >
-          <Box
-            component='span'
-            sx={{
-              width: 8,
-              height: 8,
-              borderRadius: '50%',
-              bgcolor: done ? 'secondary.main' : 'primary.main',
-            }}
-          />
+          {done ? (
+            <Box
+              component='span'
+              sx={{
+                width: 8,
+                height: 8,
+                borderRadius: '50%',
+                bgcolor: 'secondary.main',
+              }}
+            />
+          ) : (
+            <CircularProgress size={12} thickness={6} aria-hidden />
+          )}
           {statusOf[state.screen]}
         </Typography>
       </Box>
-      {state.screen === 'loading' && (
-        <LinearProgress
-          variant='determinate'
-          value={percent}
-          aria-label={statusOf.loading}
-        />
-      )}
+      <LinearProgress
+        variant={progress === undefined ? 'indeterminate' : 'determinate'}
+        value={progress}
+        aria-label={statusOf[state.screen]}
+        aria-hidden={done}
+        sx={{ visibility: done ? 'hidden' : 'visible' }}
+      />
       <SongLanes
         song={song}
         peaks={state.peaks}

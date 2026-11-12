@@ -99,7 +99,7 @@
   "landing.try.status.building": "Getting ready",
   "landing.try.status.done": "Ready",
   "landing.try.status.donePart": "The first {{limit}} are ready",
-  "landing.try.status.loading": "Getting ready, the first time only · {{percent}}%",
+  "landing.try.status.loading": "Getting ready, the first time only",
   "landing.try.status.preparing": "Reading the song",
   "landing.try.status.separating": "Taking apart · {{ready}} of {{limit}}",
   "landing.try.title": "Hear the singer on their own",
