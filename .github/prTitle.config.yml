@@ -22,3 +22,4 @@ scopes:
   lint: 'ESLint rules and config'
   ts: 'TypeScript config & strictness (tsconfig, types)'
   license: 'license, trademark and third-party notices'
+  agent: 'agent guidance (AGENTS.md)'
