@@ -8,7 +8,7 @@ The website of Musetric, musetric.com: a React site that Vite builds and prerend
 - `src/pages`: one component per route; `src/pages/landing` holds the sections of the home page.
 - `src/pages/landing/tryIt`: the demo, which decodes the visitor's song with `@musetric/dsp` and takes it apart with `@musetric/ai`, in a worker.
 - `src/translations`: the texts of the site, which `npm run fix:translations` extracts from the code.
-- `scripts`: the prerender and the favicons plugin of Vite.
+- `scripts`: the prerender, and the favicons and notices plugins of Vite.
 - `public`: the files served as they are; `wrangler.jsonc`: the Worker.
 - `tsconfig.*.json`: the runtime boundaries, chosen by the suffix of a file: `.cross.ts`, `.worker.ts`, `.worklet.ts`, and none for the page.
 

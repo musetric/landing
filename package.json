@@ -32,7 +32,7 @@
     "@mui/material": "9.5.0",
     "@musetric/ai": "0.1.0",
     "@musetric/checks": "0.3.0",
-    "@musetric/dsp": "0.1.1",
+    "@musetric/dsp": "0.1.2",
     "@musetric/eslint-config": "0.2.0",
     "@resvg/resvg-js": "2.6.2",
     "@types/audioworklet": "0.0.100",
