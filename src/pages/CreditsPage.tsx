@@ -57,9 +57,7 @@ export const CreditsPage = () => {
           <Trans
             i18nKey='credits.more.body'
             components={{
-              notices: (
-                <Link href='https://github.com/musetric/musetric/blob/main/thirdPartyNotices.md' />
-              ),
+              notices: <Link href='/notices.txt' />,
             }}
           />
         </Typography>
