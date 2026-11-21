@@ -21,7 +21,6 @@ import {
   type SongInfo,
   type SongPeaks,
   type StemKey,
-  waveformBins,
 } from './tryIt.cross.js';
 
 const lockName = 'musetric-separation';
@@ -34,21 +33,16 @@ const post = (event: DemoEvent, transfer: Transferable[] = []): void => {
 const describe = (error: unknown): string =>
   error instanceof Error ? error.message : String(error);
 
-const emptyStems = (): Record<StemKey, Float32Array> => ({
-  lead: new Float32Array(waveformBins),
-  backing: new Float32Array(waveformBins),
-  instrumental: new Float32Array(waveformBins),
-});
-
 const copyPeaks = (
   original: Float32Array,
-  stems: Record<StemKey, Float32Array>,
+  stems: Record<StemKey, Float32Array> | undefined,
 ): SongPeaks => ({
   original: original.slice(),
   stems: {
-    lead: stems.lead.slice(),
-    backing: stems.backing.slice(),
-    instrumental: stems.instrumental.slice(),
+    lead: stems?.lead.slice() ?? new Float32Array(original.length),
+    backing: stems?.backing.slice() ?? new Float32Array(original.length),
+    instrumental:
+      stems?.instrumental.slice() ?? new Float32Array(original.length),
   },
 });
 
@@ -124,8 +118,8 @@ const startDemoWorker = (): void => {
     await removeSong();
     const stored = await storeOriginal(file);
     const files = await openSongFiles();
-    let original: Float32Array = new Float32Array(waveformBins);
-    let stems = emptyStems();
+    let original: Float32Array = new Float32Array(0);
+    let stems: Record<StemKey, Float32Array> | undefined = undefined;
     const probe: { session?: Session } = {};
     const decoding = await decodeSong({
       file: stored,
@@ -167,17 +161,18 @@ const startDemoWorker = (): void => {
     });
     const mixturePeak = await decoding.mixture;
     await decoding.finished;
-    post({ type: 'peaks', peaks: copyPeaks(original, stems) });
+    const peaks = copyPeaks(original, stems);
+    post({ type: 'peaks', peaks });
     await writeRecord({
       song: probed.song,
       mixturePeak,
       done: true,
       peaks: {
-        original: Array.from(original),
+        original: Array.from(peaks.original),
         stems: {
-          lead: Array.from(stems.lead),
-          backing: Array.from(stems.backing),
-          instrumental: Array.from(stems.instrumental),
+          lead: Array.from(peaks.stems.lead),
+          backing: Array.from(peaks.stems.backing),
+          instrumental: Array.from(peaks.stems.instrumental),
         },
       },
     });

@@ -9,9 +9,10 @@ import {
   type SeparationSource,
   separationTrack,
 } from '@musetric/ai/separation';
+import init, { WavePeaks } from '@musetric/dsp/songs';
 import { env } from 'onnxruntime-web/webgpu';
 import { type SongFiles } from './songFiles.worker.js';
-import { type StemKey, stemKeys, waveformBins } from './tryIt.cross.js';
+import { type StemKey, stemKeys } from './tryIt.cross.js';
 
 const cacheName = 'musetric-separation';
 const stereo = 2;
@@ -118,33 +119,9 @@ const createSource = (
   };
 };
 
-type StemTrace = {
-  peaks: Record<StemKey, Float32Array>;
-  binsPerFrame: number;
-  scale: number;
-};
-
-const traceStem = (
-  trace: StemTrace,
-  key: StemKey,
-  samples: Float32Array,
-  first: number,
-): void => {
-  const { scale } = trace;
-  const peaks = trace.peaks[key];
-  for (let frame = 0; frame < samples.length / stereo; frame += 1) {
-    const left = samples[frame * stereo] / scale;
-    const right = samples[frame * stereo + 1] / scale;
-    samples[frame * stereo] = left;
-    samples[frame * stereo + 1] = right;
-    const bin = Math.min(
-      waveformBins - 1,
-      Math.floor((first + frame) * trace.binsPerFrame),
-    );
-    const level = Math.max(Math.abs(left), Math.abs(right));
-    if (level > peaks[bin]) {
-      peaks[bin] = level;
-    }
+const scaleStem = (samples: Float32Array, scale: number): void => {
+  for (const [index, sample] of samples.entries()) {
+    samples[index] = sample / scale;
   }
 };
 
@@ -161,35 +138,43 @@ export const separateSong = async (
   options: SeparationOptions,
 ): Promise<void> => {
   const { files, frames, duration, mixture } = options;
-  const trace: StemTrace = {
-    peaks: {
-      lead: new Float32Array(waveformBins),
-      backing: new Float32Array(waveformBins),
-      instrumental: new Float32Array(waveformBins),
-    },
-    binsPerFrame:
-      waveformBins / (duration * separationTrack.geometry.sampleRate),
-    scale: 1,
+  await init();
+  const songFrames = Math.round(duration * separationTrack.geometry.sampleRate);
+  const traces: Record<StemKey, WavePeaks> = {
+    lead: new WavePeaks(songFrames),
+    backing: new WavePeaks(songFrames),
+    instrumental: new WavePeaks(songFrames),
   };
   let ready = 0;
   const commit = async (separated: SeparationCommit): Promise<void> => {
-    trace.scale = peakScale(await mixture);
+    const scale = peakScale(await mixture);
     const { stems } = separated;
     for (const key of stemKeys) {
-      traceStem(trace, key, stems[key], ready);
+      scaleStem(stems[key], scale);
+      traces[key].push(stems[key]);
       files.write(key, ready, stems[key]);
     }
     ready += stems.lead.length / stereo;
-    options.separated(ready, trace.peaks);
+    options.separated(ready, {
+      lead: traces.lead.peaks(),
+      backing: traces.backing.peaks(),
+      instrumental: traces.instrumental.peaks(),
+    });
   };
-  await separateTrack({
-    ...separationTrack,
-    source: createSource(files, frames, mixture),
-    loadModel: async () =>
-      loadSeparationModel(await fetchModelFiles(options.progress)),
-    report: () => undefined,
-    commit,
-  });
+  try {
+    await separateTrack({
+      ...separationTrack,
+      source: createSource(files, frames, mixture),
+      loadModel: async () =>
+        loadSeparationModel(await fetchModelFiles(options.progress)),
+      report: () => undefined,
+      commit,
+    });
+  } finally {
+    for (const key of stemKeys) {
+      traces[key].free();
+    }
+  }
   files.flush();
   if (ready !== frames) {
     throw new Error(

@@ -21,4 +21,4 @@ The demo on the home page, which takes a song apart in the browser, bundles thre
 
 - `@musetric/ai`, with the code of `@musetric/fft` and `@musetric/utils`, by the Musetric developers, under the MIT License: https://github.com/musetric/musetric.
 - ONNX Runtime Web, by Microsoft, under the MIT License: https://github.com/microsoft/onnxruntime. Its WebAssembly module is loaded from jsDelivr at the same version.
-- Mediabunny, by Vanilagy and contributors, under the Mozilla Public License 2.0, bundled unmodified; its source is at https://github.com/Vanilagy/mediabunny.
+- `@musetric/dsp`, by the Musetric developers, under the MIT License: https://github.com/musetric/musetric. Its WebAssembly module `songs` is compiled from Rust crates, among them Symphonia, by Philip Deljanov and contributors, under the Mozilla Public License 2.0, compiled unmodified, whose source is at https://github.com/pdeljanov/Symphonia, and libopus, under the BSD 3-Clause License, whose notice is in https://github.com/musetric/musetric/blob/main/thirdPartyNotices.md.

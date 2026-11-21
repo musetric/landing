@@ -1,5 +1,4 @@
 export const separationLimitSeconds = 300;
-export const waveformBins = 960;
 export const feedBlockFrames = 8192;
 
 export type StemKey = 'lead' | 'backing' | 'instrumental';
