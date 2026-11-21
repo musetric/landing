@@ -7,7 +7,7 @@ import {
 
 const folderName = 'tryIt';
 const songName = 'song';
-const recordName = 'song.json';
+const recordName = 'record.json';
 const frameBytes = 2 * Float32Array.BYTES_PER_ELEMENT;
 
 export type TrackName = 'mixture' | StemKey;

@@ -58,7 +58,7 @@ export const SongLanes = (props: SongLanesProps) => {
   const { duration } = song;
   const limit = song.frames / song.sampleRate;
   const readySeconds = ready / song.sampleRate;
-  const scale = peaks ? Math.max(...peaks.original) : 0;
+  const scale = peaks ? Math.max(...peaks.original.map(Math.abs)) : 0;
   const paths = useMemo(
     () =>
       peaks && {
