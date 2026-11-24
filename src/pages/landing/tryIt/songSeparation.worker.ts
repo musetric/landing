@@ -8,6 +8,7 @@ import {
   separationModelFiles,
   type SeparationSource,
   separationTrack,
+  warmUpOrt,
 } from '@musetric/ai/separation';
 import init, { WavePeaks } from '@musetric/dsp/songs';
 import { env } from 'onnxruntime-web/webgpu';
@@ -23,6 +24,17 @@ if (!runtimeVersion) {
 }
 env.wasm.wasmPaths = `https://cdn.jsdelivr.net/npm/onnxruntime-web@${runtimeVersion}/dist/`;
 env.wasm.numThreads = 1;
+
+const runsOnWebKit = (): boolean => {
+  const agent = navigator.userAgent;
+  return /AppleWebKit\//.test(agent) && !/(Chrome|Chromium|Edg)\//.test(agent);
+};
+
+export const warmUpSeparation = async (): Promise<void> => {
+  if (runsOnWebKit()) {
+    await warmUpOrt(0);
+  }
+};
 
 const readBody = async (
   response: Response,
@@ -130,6 +142,7 @@ export type SeparationOptions = {
   frames: number;
   duration: number;
   mixture: Promise<number>;
+  warmedUp: Promise<void>;
   progress: ModelProgress;
   separated: (ready: number, peaks: Record<StemKey, Float32Array>) => void;
 };
@@ -165,8 +178,11 @@ export const separateSong = async (
     await separateTrack({
       ...separationTrack,
       source: createSource(files, frames, mixture),
-      loadModel: async () =>
-        loadSeparationModel(await fetchModelFiles(options.progress)),
+      loadModel: async () => {
+        const modelFiles = await fetchModelFiles(options.progress);
+        await options.warmedUp;
+        return await loadSeparationModel(modelFiles);
+      },
       report: () => undefined,
       commit,
     });
