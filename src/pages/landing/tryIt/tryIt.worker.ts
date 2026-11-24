@@ -11,7 +11,7 @@ import {
   writeRecord,
 } from './songFiles.worker.js';
 import { mixDown } from './songMixdown.worker.js';
-import { separateSong } from './songSeparation.worker.js';
+import { separateSong, warmUpSeparation } from './songSeparation.worker.js';
 import {
   type DemoCommand,
   type DemoEvent,
@@ -89,6 +89,13 @@ const readBlock = (
 
 const startDemoWorker = (): void => {
   let session: Session | undefined = undefined;
+  const supported = separationSupported();
+  const warmedUp = supported.then(async (yes) => {
+    if (yes) {
+      await warmUpSeparation();
+    }
+  });
+  warmedUp.catch(() => undefined);
 
   const closeSession = (): void => {
     session?.files.close();
@@ -144,6 +151,7 @@ const startDemoWorker = (): void => {
       frames: probed.song.frames,
       duration: probed.song.duration,
       mixture: decoding.mixture,
+      warmedUp,
       progress: {
         loading: (loaded, total) => {
           post({ type: 'loading', loaded, total });
@@ -251,9 +259,9 @@ const startDemoWorker = (): void => {
     });
   });
 
-  separationSupported()
-    .then((supported) => {
-      post({ type: 'support', supported });
+  supported
+    .then((yes) => {
+      post({ type: 'support', supported: yes });
     })
     .catch(() => {
       post({ type: 'support', supported: false });
